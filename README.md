@@ -1,4 +1,4 @@
-# Rewear - SDET Portfolio Project
+# Rework - SDET Portfolio Project
 
 A full-stack demo app built to showcase SDET/SWE skills: a real product to test, and a real
 Playwright test-automation practice around it.
