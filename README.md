@@ -8,10 +8,10 @@ The app has two halves:
 - **The marketplace** (`app/(marketplace)`) - Rewear, a used-clothing marketplace (browse/search
   listings, listing detail, cart & checkout, auth, seller listing management). This is the
   application under test.
-- **The admin dashboard** (`app/admin`) - a password-gated view of live Playwright test metrics:
-  pass-rate trends, flaky tests, per-run breakdowns, and per-test history. Data comes from a real
-  GitHub Actions pipeline that runs the Playwright suite and POSTs results to `/api/ingest`, not
-  from mock data.
+- **The admin dashboard** (`app/admin`) - a full-stack test-orchestration dashboard that discovers
+  registered Playwright tests via the CLI, triggers on-demand runs, and persists results to the
+  database for historical reporting: pass-rate trends, flaky tests, per-run breakdowns, and
+  per-test history.
 
 ## Getting started
 
@@ -28,8 +28,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 - Next.js (App Router) + TypeScript + Tailwind
 - Prisma + Postgres (Neon in production)
-- Playwright for E2E tests (`tests/e2e`, added in a later phase)
-- GitHub Actions for CI, feeding real run data into the admin dashboard
+- Playwright for E2E tests (`tests/e2e`)
+- Test runs are triggered on-demand via the CLI/dashboard and results are persisted to Postgres via `/api/ingest`
 
 ## Scripts
 
@@ -37,3 +37,8 @@ Open [http://localhost:3000](http://localhost:3000).
 - `npm run build` / `npm run start` - production build/serve
 - `npm run lint` - ESLint
 - `npm run format` / `npm run format:check` - Prettier
+
+## Future Improvements
+
+- Set up GitHub Actions CI to automatically run the Playwright suite on push/PR and feed results
+  into the dashboard, instead of relying solely on manually triggered on-demand runs.
