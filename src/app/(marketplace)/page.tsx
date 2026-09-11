@@ -2,6 +2,8 @@ import { listActiveListings } from "@/lib/services/listings";
 import { ListingCard } from "@/components/listing-card";
 import { EmptyState } from "@/components/ui";
 
+export const dynamic = "force-dynamic";
+
 export default async function BrowsePage() {
   const listings = await listActiveListings();
 
